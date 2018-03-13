@@ -1,0 +1,15 @@
+name: php
+stages:
+- name: clone
+  steps:
+  - sourceCodeConfig:
+      url: https://github.com/gitlawr/php.git
+      branch: master
+      branchCondition: only
+      sourceCodeCredentialId: user-4kz45:local-github-gitlawr
+- name: build
+  steps:
+  - runScriptConfig:
+      image: php:latest
+      isShell: true
+      shellScript: echo hi
