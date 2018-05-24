@@ -3,7 +3,6 @@ stages:
 - name: clone
   steps:
   - sourceCodeConfig:
-      url: https://github.com/gitlawr/php.git
       branch: master
       branchCondition: only
 - name: build
@@ -12,3 +11,9 @@ stages:
       image: php:latest
       isShell: true
       shellScript: echo hiinmaster
+- name: publish
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: docker-registry:5000/project/image:latest
