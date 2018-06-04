@@ -11,12 +11,17 @@ stages:
       image: php:latest
       isShell: true
       shellScript: echo hiinmaster
-- name: publish
+- name: build image
   steps:
-  - publishImageConfig:
+  - buildImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: docker-registry:5000/project/image:latest
+      tag: test/nginx:latest
+- name: push image
+  steps:
+  - pushImageConfig:
+      tag: test/nginx:latest
+      registry: reg.cnrancher.com
 - name: deploy
   steps:
   - applyYamlConfig:
