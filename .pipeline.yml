@@ -11,13 +11,36 @@ stages:
       image: php:latest
       isShell: true
       shellScript: echo hiinmaster
-- name: publish
+    when:
+      branch:
+        include: ["conditionno","master"]
+  - runScriptConfig:
+      image: php:latest
+      isShell: true
+      shellScript: echo hiinmaster2
+- name: build2
   steps:
-  - publishImageConfig:
-      dockerfilePath: ./Dockerfile
-      buildContext: .
-      tag: docker-registry:5000/project/image:latest
-- name: deploy
+  - runScriptConfig:
+      image: php:latest
+      isShell: true
+      shellScript: echo hiinmaster3
+    when:
+      branch:
+        exclude: ["conditon"]
+  - runScriptConfig:
+      image: php:latest
+      isShell: true
+      shellScript: echo hiinmaster4
+- name: build3
   steps:
-  - applyYamlConfig:
-      path: ./deployment.yaml
+  - runScriptConfig:
+      image: php:latest
+      isShell: true
+      shellScript: echo hiinmaster5
+  - runScriptConfig:
+      image: php:latest
+      isShell: true
+      shellScript: echo hiinmaster6
+  when:
+    branch:
+      include: ["a","b"]
