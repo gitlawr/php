@@ -3,17 +3,11 @@ stages:
 - name: clone
   steps:
   - sourceCodeConfig:
-      branch: master
-      branchCondition: only
+      branchCondition: all
 - name: build
   steps:
   - runScriptConfig:
       image: php:latest
       isShell: true
-      shellScript: echo hiinmaster
-- name: publish
-  steps:
-  - publishImageConfig:
-      dockerfilePath: ./Dockerfile
-      buildContext: .
-      tag: docker-registry:5000/project/image:latest
+      shellScript: echo ${mys}
+      secrets: ["mys"]
