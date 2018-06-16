@@ -9,5 +9,5 @@ stages:
   - runScriptConfig:
       image: php:latest
       isShell: true
-      shellScript: echo ${mys}
+      shellScript: echo ${MYS} && sleep 300
       secrets: ["mys"]
