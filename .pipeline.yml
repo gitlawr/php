@@ -7,7 +7,9 @@ stages:
 - name: build
   steps:
   - runScriptConfig:
-      image: php:latest
+      image: "php:latest"
       isShell: true
-      shellScript: echo ${MYS} && sleep 300
-      secrets: ["mys"]
+      shellScript: echo "mysss is: $MYSSS" && sleep 300 
+      envFrom:
+      - sourceName: api-key
+        sourceKey: MYSSS
