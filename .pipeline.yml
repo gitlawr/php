@@ -10,6 +10,6 @@ stages:
       image: "php:latest"
       isShell: true
       shellScript: echo "mysss is: $MYSSS" && sleep 300 
-      envFrom:
-      - sourceName: api-key
-        sourceKey: MYSSS
+      #envFrom:
+      #- sourceName: api-key
+      #  sourceKey: MYSSS
