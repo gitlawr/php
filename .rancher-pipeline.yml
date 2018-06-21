@@ -1,1 +1,10 @@
-{"stages":[{"name":"Clone","steps":[{"sourceCodeConfig":{}}]},{"name":"build","steps":[{"runScriptConfig":{"image":"busybox","isShell":true,"shellScript":"echo helloworld"}}]}]}
+stages:
+- name: Clone
+  steps:
+  - sourceCodeConfig: {}
+- name: build
+  steps:
+  - runScriptConfig:
+      image: busybox
+      isShell: true
+      shellScript: echo helloworld
