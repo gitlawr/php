@@ -7,4 +7,6 @@ stages:
   - runScriptConfig:
       image: busybox
       isShell: true
-      shellScript: echo helloworld
+      shellScript: |-
+        echo helloworld
+        echo hehe
