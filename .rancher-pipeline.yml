@@ -1,0 +1,20 @@
+stages:
+- name: clone
+  steps:
+  - sourceCodeConfig: {}
+- name: build
+  steps:
+  - runScriptConfig:
+      image: busybox
+      isShell: true
+      shellScript: echo hi
+- name: publish
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: project/test
+- name: deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
