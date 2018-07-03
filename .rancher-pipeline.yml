@@ -9,3 +9,10 @@ stages:
       shellScript: |-
         echo helloworld
         echo hehe
+    env:
+      A: B
+    envFrom:
+    - sourceName: pipeline-secret
+      sourceKey: admin-user
+      targetKey: AA
+    privileged: true
