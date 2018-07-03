@@ -40,7 +40,7 @@ stages:
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
-# Optional branch conditions for the pipeline
+# Optional branch conditions for the pipeline 
 branch:
   include: [ master, feature/*, set]
   exlclude: [ dev ]
