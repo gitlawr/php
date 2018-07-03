@@ -1,19 +1,12 @@
 stages:
 - name: Build something
-  # Conditions for stages
-  when:
-    branch: set
-    event: [ push, pull_request ]
-  # Multiple steps run concurrently
   steps:
   - runScriptConfig:
       image: busybox
       shellScript: echo ${FIRST_KEY} && echo ${ALIAS_ENV}
-    # Set environment variables in container for the step
     env:
       FIRST_KEY: VALUE
       SECOND_KEY: VALUE2
-    # Set environment variables from project secrets
     envFrom:
     - sourceName: pipeline-secret
       sourceKey: admin-user
@@ -21,26 +14,38 @@ stages:
   - runScriptConfig:
       image: busybox
       shellScript: date -R
-    # Conditions for steps
-    when:
-      branch: [ master, dev ]
-      event: push
-    #Run in privileged mode
     privileged: true
+    when:
+      branch:
+        include:
+        - master
+        - dev
+      event:
+        include:
+        - push
+  - runScriptConfig:
+      image: golang:latest
+      shellScript: ls
+  when:
+    branch:
+      include:
+      - set
+    event:
+      include:
+      - push
+      - pull_request
 - name: Publish my image
   steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: rancher/busybox:v0.0.0
-      # Optionally push to remote registry
-      # pushRemote: true
-      # registry: reg.example.com
 - name: Deploy
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
-# Optional branch conditions for the pipeline 
 branch:
-  include: [ master, feature/*, set]
-  exlclude: [ dev ]
+  include:
+  - master
+  - feature/*
+  - set
