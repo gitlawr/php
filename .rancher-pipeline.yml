@@ -15,7 +15,7 @@ stages:
       SECOND_KEY: VALUE2
     # Set environment variables from project secrets
     envFrom:
-      sourceName: pipeline-secret
+    - sourceName: pipeline-secret
       sourceKey: admin-user
       targetKey: ALIAS_ENV
   - runScriptConfig:
