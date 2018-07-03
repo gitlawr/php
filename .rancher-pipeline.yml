@@ -1,12 +1,11 @@
 stages:
-- name: Clone
+- name: clone
   steps:
   - sourceCodeConfig: {}
 - name: build
   steps:
   - runScriptConfig:
       image: busybox
-      isShell: true
       shellScript: |-
         echo helloworld
         echo hehe
