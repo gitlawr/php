@@ -1,7 +1,4 @@
 stages:
-- name: clone
-  steps:
-  - sourceCodeConfig: {}
 - name: build
   steps:
   - runScriptConfig:
