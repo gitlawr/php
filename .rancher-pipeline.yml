@@ -1,4 +1,5 @@
 stages:
+invalid line
 - name: Build something
   steps:
   - runScriptConfig:
