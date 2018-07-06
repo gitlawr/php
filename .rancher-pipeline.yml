@@ -5,7 +5,6 @@ stages:
       image: busybox
       shellScript: |-
         echo hi
-        exit 1
 - name: publish
   steps:
   - publishImageConfig:
