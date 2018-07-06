@@ -3,12 +3,9 @@ stages:
   steps:
   - runScriptConfig:
       image: busybox
-      isShell: true
-      shellScript: echo hi
-  - runScriptConfig:
-      image: busybox
-      isShell: true
-      shellScript: echo sleepy && sleep 15
+      shellScript: |-
+        echo hi
+        exit 1
 - name: publish
   steps:
   - publishImageConfig:
