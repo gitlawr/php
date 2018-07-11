@@ -1,18 +1,1 @@
-stages:
-- name: build
-  steps:
-  - runScriptConfig:
-      image: busybox
-      shellScript: |-
-        echo hiaaa
-        sleep 20
-- name: publish
-  steps:
-  - publishImageConfig:
-      dockerfilePath: ./Dockerfile
-      buildContext: .
-      tag: project/test
-- name: deploy
-  steps:
-  - applyYamlConfig:
-      path: ./deployment.yaml
+{"stages":[{"name":"build","steps":[{"runScriptConfig":{"image":"busybox","shellScript":"echo hiaaa\nsleep 21"}}]},{"name":"publish","steps":[{"publishImageConfig":{"dockerfilePath":"./Dockerfile","buildContext":".","tag":"project/test"}}]},{"name":"deploy","steps":[{"applyYamlConfig":{"path":"./deployment.yaml"}}]}]}
