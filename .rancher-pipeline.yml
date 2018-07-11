@@ -3,7 +3,9 @@ stages:
   steps:
   - runScriptConfig:
       image: busybox
-      shellScript: echo hiaaa
+      shellScript: |-
+        echo hiaaa
+        sleep 20
 - name: publish
   steps:
   - publishImageConfig:
