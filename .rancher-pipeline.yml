@@ -12,6 +12,8 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: project/test
+    env:
+      MIRROR: "https://registry.docker-cn.com"
 - name: deploy
   steps:
   - applyYamlConfig:
