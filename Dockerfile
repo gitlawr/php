@@ -1,3 +1,2 @@
-FROM busybox
-
-RUN ls && echo finish
+FROM scratch
+CMD ["echo"]
