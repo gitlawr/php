@@ -5,7 +5,7 @@ stages:
       image: busybox
       shellScript: |-
         echo hiaaa
-        sleep 19
+        sleep 1
 - name: publish
   steps:
   - publishImageConfig:
