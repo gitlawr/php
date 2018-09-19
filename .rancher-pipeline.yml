@@ -8,4 +8,5 @@ stages:
       pushRemote: true
       registry: reg.cnrancher.com
     env:
-      MIRROR: https://registry.docker-cn.com
+      PLUGIN_BUILD_ARGS: abc=aaa
+      PLUGIN_BUILD_ARGS: def=bbb
