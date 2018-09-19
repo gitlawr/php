@@ -8,5 +8,4 @@ stages:
       pushRemote: true
       registry: reg.cnrancher.com
     env:
-      PLUGIN_BUILD_ARGS: abc=aaa
-      PLUGIN_BUILD_ARGS: def=bbb
+      PLUGIN_BUILD_ARGS: abc=aaa,def=bbb
