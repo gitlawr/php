@@ -1,20 +1,11 @@
 stages:
-- name: build
-  steps:
-  - runScriptConfig:
-      image: busybox
-      shellScript: |-
-        echo hiaaa
-        sleep 1
 - name: publish
   steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: project/test
+      tag: pipeline/dev
+      pushRemote: true
+      registry: reg.cnrancher.com
     env:
-      MIRROR: "https://registry.docker-cn.com"
-- name: deploy
-  steps:
-  - applyYamlConfig:
-      path: ./deployment.yaml
+      MIRROR: https://registry.docker-cn.com
