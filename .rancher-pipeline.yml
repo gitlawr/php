@@ -6,6 +6,7 @@ stages:
       buildContext: .
       tag: pipeline/dev
       pushRemote: true
-      registry: reg.cnrancher.com
+      registry: example.com
     env:
       PLUGIN_BUILD_ARGS: abc=aaa,def=bbb
+      PLUGIN_DEBUG: "true"
