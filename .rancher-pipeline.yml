@@ -1,12 +1,6 @@
 stages:
-- name: publish
+- name: test
   steps:
-  - publishImageConfig:
-      dockerfilePath: ./Dockerfile
-      buildContext: .
-      tag: pipeline/dev
-      pushRemote: true
-      registry: example.com
-    env:
-      PLUGIN_BUILD_ARGS: abc=aaa,def=bbb
-      PLUGIN_DEBUG: "true"
+  - runScriptConfig:
+      image: busybox
+      shellScript: echo hi
