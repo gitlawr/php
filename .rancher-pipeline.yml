@@ -2,16 +2,5 @@ stages:
 - name: a
   steps:
   - runScriptConfig:
-      image: gcc:latest
-      shellScript: ls
-  when:
-    branch:
-      include:
-      - a
-      exclude:
-      - b
-    event:
-      include:
-      - pull_request
-      exclude:
-      - push
+      image: plugins/gcs
+      shellScript: /bin/drone-gcs
